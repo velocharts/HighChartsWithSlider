@@ -32,6 +32,14 @@ button:disabled {
 	text-align: center;
 }
 
+#slider  {
+position:fixed;
+left:50px;
+
+}
+
+
+
 </style>
 	<script>
 	
@@ -52,10 +60,15 @@ var TokyoData = [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 
             subtitle: {
                 text: 'Source: WorldClimate.com'
             },
+			credits: {
+                enabled: false
+            },
             xAxis: {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
             },
             yAxis: {
+				max: 100,
+				min: 0,
                 title: {
                     text: 'Temperature (°C)'
                 }
@@ -83,10 +96,16 @@ var TokyoData = [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 
             series: [{
                 name: 'Tokyo',
 				color: 'red',
+				marker: {
+                symbol:  'url(http://highcharts.com/demo/gfx/sun.png)'
+            },
                 data: TokyoData
             }, {
                 name: 'London',
 				color: 'grey',
+				marker: {
+                symbol: 'triangle'
+            },
                 data:  LondonData
             }]
         });
@@ -111,6 +130,9 @@ var TokyoData = [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 
             chart.addSeries({
               name: 'Tokyo',
 			  color: 'red',
+			  marker: {
+                symbol:  'url(http://highcharts.com/demo/gfx/sun.png)'
+            },
 	          data: NewTokyoData,
 			  animation: false
 				 });	
@@ -118,6 +140,9 @@ var TokyoData = [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 
 			  chart.addSeries({
               name: 'London',
 			  color: 'grey',
+			  marker: {
+                symbol: 'triangle'
+            },
 	          data: LondonData,
 			  animation: false
 				 });
@@ -137,9 +162,11 @@ var TokyoData = [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 
 	<div id="container" style="width:100%; height:400px;"></div>
 	
 <p>
-  <label for="amount">Increase Temp by:</label>
+  <label for="amount" style="text-align:center">Increase Temp by:</label>
+  
   <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
 </p>
+<br>
 	<div id="slider" style="width:50%"></div>
 	
 	
